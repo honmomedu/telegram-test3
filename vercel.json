@@ -1,0 +1,16 @@
+{
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/miniapp/index.html"
+    },
+    {
+      "source": "/styles.css",
+      "destination": "/miniapp/styles.css"
+    },
+    {
+      "source": "/app.js",
+      "destination": "/miniapp/app.js"
+    }
+  ]
+}
