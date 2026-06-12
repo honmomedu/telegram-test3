@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>School Assistant Mini App</title>
+    
+    <!-- Telegram Web App SDK -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    
+    <!-- Google Fonts: Kantumruy Pro for modern Khmer typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app" class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="school-logo">
+                <i class="fa-solid fa-graduation-cap"></i>
+            </div>
+            <div class="school-name">
+                <h1>វិទ្យាល័យសាលា</h1>
+                <p>ជំនួយការសាលា</p>
+            </div>
+        </header>
+
+        <!-- Profile Card -->
+        <section class="card profile-card glass">
+            <div class="profile-avatar">
+                <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Felix&backgroundColor=e2e8f0" alt="Student Avatar" id="studentAvatar">
+                <div class="status-badge active"></div>
+            </div>
+            <div class="profile-info">
+                <h2 id="studentName">មិនមានឈ្មោះ</h2>
+                <div class="profile-details">
+                    <span class="badge"><i class="fa-solid fa-chalkboard-user"></i> <span id="studentClass">--</span></span>
+                    <span class="badge"><i class="fa-solid fa-id-card"></i> ID: <span id="studentId">--</span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Stats Grid -->
+        <section class="stats-grid">
+            <!-- Results Card -->
+            <div class="card stat-card glass">
+                <div class="stat-header">
+                    <div class="icon-wrapper blue">
+                        <i class="fa-solid fa-chart-column"></i>
+                    </div>
+                    <h3>លទ្ធផលប្រឡង</h3>
+                </div>
+                <div class="stat-body">
+                    <div class="score-display">
+                        <span class="score-value" id="examScore">--</span>
+                    </div>
+                    <p class="score-label" id="examDetail">មិនទាន់មានទិន្នន័យ</p>
+                </div>
+                <button class="btn-primary w-100 mt-3" onclick="viewDetailedResults()">មើលលទ្ធផលលម្អិត</button>
+            </div>
+
+            <!-- Attendance Card -->
+            <div class="card stat-card glass">
+                <div class="stat-header">
+                    <div class="icon-wrapper gold">
+                        <i class="fa-regular fa-calendar-check"></i>
+                    </div>
+                    <h3>វត្តមាន</h3>
+                </div>
+                <div class="stat-body">
+                    <div class="attendance-progress">
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="attendanceBar" style="width: 0%"></div>
+                        </div>
+                    </div>
+                    <div class="attendance-stats">
+                        <span>វត្តមានសរុប: <strong id="attendanceTotal">--</strong></span>
+                        <span class="text-danger">អវត្តមាន: <strong id="absenceTotal">--</strong></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Announcements Section -->
+        <section class="card announcement-card glass">
+            <div class="stat-header">
+                <div class="icon-wrapper purple">
+                    <i class="fa-solid fa-bullhorn"></i>
+                </div>
+                <h3>សេចក្តីជូនដំណឹង</h3>
+            </div>
+            <div class="announcement-list" id="announcementList">
+                <div class="announcement-item">
+                    <p class="text-muted">កំពុងទាញយកទិន្នន័យ...</p>
+                </div>
+            </div>
+        </section>
+        
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="spinner"></div>
+            <p>កំពុងរៀបចំ...</p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

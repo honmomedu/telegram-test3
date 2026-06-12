@@ -1,0 +1,327 @@
+:root {
+    --bg-color: #f1f5f9;
+    --primary-color: #1e3a8a; /* Deep Navy Blue */
+    --accent-color: #d97706; /* Elegant Gold */
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --danger-color: #ef4444;
+    --success-color: #10b981;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --shadow-soft: 0 8px 32px rgba(30, 58, 138, 0.08);
+    --border-radius-lg: 20px;
+    --border-radius-md: 14px;
+    --border-radius-sm: 8px;
+    --tg-theme-bg-color: var(--bg-color);
+    --tg-theme-text-color: var(--text-main);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Kantumruy Pro', sans-serif;
+}
+
+body {
+    background-color: var(--tg-theme-bg-color, var(--bg-color));
+    color: var(--tg-theme-text-color, var(--text-main));
+    /* Add a subtle background pattern or gradient */
+    background-image: 
+        radial-gradient(at 0% 0%, rgba(30, 58, 138, 0.05) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(217, 119, 6, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.app-container {
+    padding: 16px;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+}
+
+.school-logo {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--primary-color), #3b82f6);
+    color: white;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 12px rgba(30, 58, 138, 0.2);
+}
+
+.school-name h1 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+.school-name p {
+    font-size: 13px;
+    color: var(--text-muted);
+}
+
+/* Glassmorphism Cards */
+.card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--border-radius-lg);
+    padding: 20px;
+    box-shadow: var(--shadow-soft);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:active {
+    transform: scale(0.98);
+}
+
+/* Profile Card */
+.profile-card {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.6) 100%);
+}
+
+.profile-avatar {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: white;
+}
+
+.status-badge {
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+.status-badge.active { background-color: var(--success-color); }
+
+.profile-info h2 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.profile-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.badge {
+    background: rgba(30, 58, 138, 0.08);
+    color: var(--primary-color);
+    padding: 4px 10px;
+    border-radius: var(--border-radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Stats Grid */
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+/* Common Stat Elements */
+.stat-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--border-radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+.icon-wrapper.blue { background: rgba(30, 58, 138, 0.1); color: var(--primary-color); }
+.icon-wrapper.gold { background: rgba(217, 119, 6, 0.1); color: var(--accent-color); }
+.icon-wrapper.purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+
+.stat-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+/* Exam Results Specific */
+.score-display {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 4px;
+}
+
+.score-label {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.mt-3 { margin-top: 16px; }
+.w-100 { width: 100%; }
+
+.btn-primary {
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    font-family: inherit;
+}
+
+.btn-primary:active {
+    background: #152c6b;
+}
+
+/* Attendance Specific */
+.attendance-progress {
+    margin-bottom: 12px;
+}
+
+.progress-bar-bg {
+    width: 100%;
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: var(--success-color);
+    border-radius: 4px;
+    transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.attendance-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+}
+
+.text-danger { color: var(--danger-color); }
+
+/* Announcements Specific */
+.announcement-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.announcement-item {
+    padding-left: 16px;
+    border-left: 3px solid var(--accent-color);
+}
+
+.announcement-item p {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.text-muted { color: var(--text-muted); }
+
+/* Loading Overlay */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--glass-bg);
+    backdrop-filter: blur(5px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.loading-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(30, 58, 138, 0.1);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 16px;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Telegram Theme Overrides - Apply TG Colors if available */
+body.tg-theme {
+    --bg-color: var(--tg-theme-bg-color);
+    --text-main: var(--tg-theme-text-color);
+    --glass-bg: var(--tg-theme-secondary-bg-color, rgba(255, 255, 255, 0.05));
+    --glass-border: rgba(128, 128, 128, 0.2);
+    --primary-color: var(--tg-theme-button-color, #1e3a8a);
+}
+
+body.tg-theme .card {
+    background: var(--tg-theme-bg-color);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+body.tg-theme .profile-card {
+    background: var(--tg-theme-secondary-bg-color, #f1f5f9);
+}
+
+body.tg-theme .btn-primary {
+    background: var(--tg-theme-button-color, var(--primary-color));
+    color: var(--tg-theme-button-text-color, white);
+}
