@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Kantumruy+Pro:wght@700&amp;display=swap');
+      .title { font-family: 'Kantumruy Pro', sans-serif; font-size: 52px; font-weight: bold; fill: #172A4E; }
+      .subtitle { font-family: 'Arial', sans-serif; font-size: 32px; font-weight: bold; fill: #C49A45; }
+      .book-path { stroke: #172A4E; fill: none; stroke-width: 14; stroke-linejoin: round; stroke-linecap: round; }
+      .lotus-path { stroke: #C49A45; fill: none; stroke-width: 12; stroke-linejoin: round; stroke-linecap: round; }
+    </style>
+  </defs>
+  
+  <g transform="translate(0, -30)">
+      <!-- Book Outline -->
+      <path class="book-path" d="M 70 230 L 190 280 C 195 282 205 282 210 280 L 330 230 L 300 130 C 260 160 220 180 200 230 C 180 180 140 160 100 130 Z" />
+      <path class="book-path" d="M 200 230 L 200 280" />
+      
+      <!-- Center Lotus Petal -->
+      <path class="lotus-path" d="M 200 210 C 150 190 130 90 200 40 C 270 90 250 190 200 210 Z" />
+      
+      <!-- Left Lotus Petal -->
+      <path class="lotus-path" d="M 180 200 C 130 180 90 120 110 70 C 140 100 160 150 180 200 Z" />
+      
+      <!-- Right Lotus Petal -->
+      <path class="lotus-path" d="M 220 200 C 270 180 310 120 290 70 C 260 100 240 150 220 200 Z" />
+  </g>
+
+  <!-- Text -->
+  <text x="200" y="330" text-anchor="middle" class="title">សាលារៀនខ្មែរ</text>
+  <text x="200" y="375" text-anchor="middle" class="subtitle">reankh.org</text>
+</svg>
