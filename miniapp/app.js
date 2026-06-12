@@ -56,7 +56,7 @@ const elements = {
 // Render Data
 function renderData(data) {
     // Header
-    elements.headerTitle.textContent = "វិទ្យាល័យសាលា";
+    elements.headerTitle.textContent = "សាលារៀនខ្មែរ";
 
     // Profile (Home View)
     elements.studentName.textContent = data.student_name;
@@ -121,7 +121,7 @@ function switchTab(targetViewId) {
             item.classList.add('active');
             // Update header title based on active tab
             const tabName = item.querySelector('span').textContent;
-            elements.headerTitle.textContent = tabName === 'ទំព័រដើម' ? 'វិទ្យាល័យសាលា' : tabName;
+            elements.headerTitle.textContent = tabName === 'ទំព័រដើម' ? 'សាលារៀនខ្មែរ' : tabName;
         } else {
             item.classList.remove('active');
         }

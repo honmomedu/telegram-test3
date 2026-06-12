@@ -11,6 +11,22 @@
     {
       "source": "/app.js",
       "destination": "/miniapp/app.js"
+    },
+    {
+      "source": "/admin",
+      "destination": "/miniapp/admin.html"
+    },
+    {
+      "source": "/admin.css",
+      "destination": "/miniapp/admin.css"
+    },
+    {
+      "source": "/admin.js",
+      "destination": "/miniapp/admin.js"
+    },
+    {
+      "source": "/logo.png",
+      "destination": "/miniapp/logo.png"
     }
   ]
 }

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - សាលារៀនខ្មែរ</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kantumruy+Pro:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Shared styles and admin specific styles -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- Login Screen -->
+    <div id="loginScreen" class="admin-container login-center">
+        <div class="card glass login-card">
+            <div class="text-center mb-4">
+                <img src="logo.png" alt="Logo" class="admin-logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <i class="fa-solid fa-shield-halved admin-logo-fallback" style="display:none; font-size: 48px; color: var(--primary-color);"></i>
+                <h2 class="mt-2">ផ្ទាំងអ្នកគ្រប់គ្រង</h2>
+                <p class="text-muted">សាលារៀនខ្មែរ</p>
+            </div>
+            
+            <div class="form-group">
+                <label>អុីមែល (Email)</label>
+                <div class="input-with-icon">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" id="emailInput" placeholder="បញ្ចូលអុីមែលរបស់អ្នក">
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label>ពាក្យសម្ងាត់ (Password)</label>
+                <div class="input-with-icon">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="passwordInput" placeholder="បញ្ចូលពាក្យសម្ងាត់">
+                </div>
+            </div>
+            
+            <p id="loginError" class="text-danger mt-2 mb-3" style="display: none; font-size: 13px;">អុីមែល ឬពាក្យសម្ងាត់មិនត្រឹមត្រូវទេ!</p>
+            
+            <button class="btn-primary w-100" id="loginBtn">ចូលប្រើប្រាស់</button>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard (Hidden initially) -->
+    <div id="dashboardScreen" class="admin-dashboard" style="display: none;">
+        <!-- Sidebar -->
+        <aside class="sidebar glass">
+            <div class="sidebar-header">
+                <h2>Admin</h2>
+                <p>សាលារៀនខ្មែរ</p>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-link active"><i class="fa-solid fa-users"></i> គ្រប់គ្រងសិស្ស</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-bullhorn"></i> សេចក្តីជូនដំណឹង</a>
+                <a href="#" class="nav-link"><i class="fa-solid fa-gear"></i> ការកំណត់</a>
+            </nav>
+            <div class="sidebar-footer">
+                <button class="btn-outline-danger w-100" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> ចាកចេញ</button>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="dashboard-header glass">
+                <h2>គ្រប់គ្រងសិស្ស</h2>
+                <div class="user-profile">
+                    <span>Admin</span>
+                    <div class="avatar"><i class="fa-solid fa-user"></i></div>
+                </div>
+            </header>
+
+            <div class="content-area">
+                <div class="card glass">
+                    <div class="flex-between mb-3">
+                        <h3>បញ្ជីសិស្សទាំងអស់</h3>
+                        <button class="btn-primary"><i class="fa-solid fa-plus"></i> បន្ថែមសិស្សថ្មី</button>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="admin-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>ឈ្មោះ</th>
+                                    <th>ថ្នាក់</th>
+                                    <th>សកម្មភាព</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>KHS11004</td>
+                                    <td>សុខ សុវណ្ណ</td>
+                                    <td>១១-ក</td>
+                                    <td>
+                                        <button class="btn-icon"><i class="fa-solid fa-pen"></i></button>
+                                        <button class="btn-icon text-danger"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                </tr>
+                                <!-- More rows would go here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
