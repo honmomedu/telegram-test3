@@ -20,88 +20,137 @@
 </head>
 <body>
     <div id="app" class="app-container">
-        <!-- Header -->
+        <!-- Header (Shared across all views) -->
         <header class="header">
             <div class="school-logo">
                 <i class="fa-solid fa-graduation-cap"></i>
             </div>
             <div class="school-name">
-                <h1>វិទ្យាល័យសាលា</h1>
-                <p>ជំនួយការសាលា</p>
+                <h1 id="headerTitle">វិទ្យាល័យសាលា</h1>
+                <p id="headerSubtitle">ជំនួយការសាលា</p>
             </div>
         </header>
 
-        <!-- Profile Card -->
-        <section class="card profile-card glass">
-            <div class="profile-avatar">
-                <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Felix&backgroundColor=e2e8f0" alt="Student Avatar" id="studentAvatar">
-                <div class="status-badge active"></div>
-            </div>
-            <div class="profile-info">
-                <h2 id="studentName">មិនមានឈ្មោះ</h2>
-                <div class="profile-details">
-                    <span class="badge"><i class="fa-solid fa-chalkboard-user"></i> <span id="studentClass">--</span></span>
-                    <span class="badge"><i class="fa-solid fa-id-card"></i> ID: <span id="studentId">--</span></span>
+        <!-- View: Home -->
+        <div id="view-home" class="view active">
+            <!-- Profile Card -->
+            <section class="card profile-card glass">
+                <div class="profile-avatar">
+                    <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Felix&backgroundColor=e2e8f0" alt="Student Avatar" id="studentAvatar">
+                    <div class="status-badge active"></div>
                 </div>
-            </div>
-        </section>
+                <div class="profile-info">
+                    <h2 id="studentName">មិនមានឈ្មោះ</h2>
+                    <div class="profile-details">
+                        <span class="badge"><i class="fa-solid fa-chalkboard-user"></i> <span id="studentClass">--</span></span>
+                        <span class="badge"><i class="fa-solid fa-id-card"></i> ID: <span id="studentId">--</span></span>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Main Stats Grid -->
-        <section class="stats-grid">
-            <!-- Results Card -->
-            <div class="card stat-card glass">
-                <div class="stat-header">
-                    <div class="icon-wrapper blue">
-                        <i class="fa-solid fa-chart-column"></i>
+            <!-- Main Stats Grid -->
+            <section class="stats-grid">
+                <!-- Results Card -->
+                <div class="card stat-card glass">
+                    <div class="stat-header">
+                        <div class="icon-wrapper blue">
+                            <i class="fa-solid fa-chart-column"></i>
+                        </div>
+                        <h3>លទ្ធផលប្រឡងថ្មីៗ</h3>
                     </div>
-                    <h3>លទ្ធផលប្រឡង</h3>
-                </div>
-                <div class="stat-body">
-                    <div class="score-display">
-                        <span class="score-value" id="examScore">--</span>
+                    <div class="stat-body">
+                        <div class="score-display">
+                            <span class="score-value" id="examScore">--</span>
+                        </div>
+                        <p class="score-label" id="examDetail">មិនទាន់មានទិន្នន័យ</p>
                     </div>
-                    <p class="score-label" id="examDetail">មិនទាន់មានទិន្នន័យ</p>
+                    <button class="btn-primary w-100 mt-3" onclick="switchTab('view-studies')">មើលលទ្ធផលលម្អិត</button>
                 </div>
-                <button class="btn-primary w-100 mt-3" onclick="viewDetailedResults()">មើលលទ្ធផលលម្អិត</button>
-            </div>
 
-            <!-- Attendance Card -->
-            <div class="card stat-card glass">
-                <div class="stat-header">
-                    <div class="icon-wrapper gold">
-                        <i class="fa-regular fa-calendar-check"></i>
+                <!-- Attendance Card -->
+                <div class="card stat-card glass">
+                    <div class="stat-header">
+                        <div class="icon-wrapper gold">
+                            <i class="fa-regular fa-calendar-check"></i>
+                        </div>
+                        <h3>វត្តមានប្រចាំខែ</h3>
                     </div>
-                    <h3>វត្តមាន</h3>
-                </div>
-                <div class="stat-body">
-                    <div class="attendance-progress">
-                        <div class="progress-bar-bg">
-                            <div class="progress-bar-fill" id="attendanceBar" style="width: 0%"></div>
+                    <div class="stat-body">
+                        <div class="attendance-progress">
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" id="attendanceBar" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div class="attendance-stats">
+                            <span>វត្តមានសរុប: <strong id="attendanceTotal">--</strong></span>
+                            <span class="text-danger">អវត្តមាន: <strong id="absenceTotal">--</strong></span>
                         </div>
                     </div>
-                    <div class="attendance-stats">
-                        <span>វត្តមានសរុប: <strong id="attendanceTotal">--</strong></span>
-                        <span class="text-danger">អវត្តមាន: <strong id="absenceTotal">--</strong></span>
+                </div>
+            </section>
+        </div>
+
+        <!-- View: Studies -->
+        <div id="view-studies" class="view">
+            <section class="card glass">
+                <div class="stat-header">
+                    <div class="icon-wrapper blue">
+                        <i class="fa-solid fa-book-open"></i>
+                    </div>
+                    <h3>មុខវិជ្ជា និងពិន្ទុ</h3>
+                </div>
+                <div class="subject-list" id="subjectList">
+                    <p class="text-muted text-center py-2">កំពុងទាញយកទិន្នន័យ...</p>
+                </div>
+            </section>
+        </div>
+
+        <!-- View: Notices -->
+        <div id="view-notices" class="view">
+            <section class="card announcement-card glass">
+                <div class="stat-header">
+                    <div class="icon-wrapper purple">
+                        <i class="fa-solid fa-bullhorn"></i>
+                    </div>
+                    <h3>សេចក្តីជូនដំណឹង</h3>
+                </div>
+                <div class="announcement-list" id="announcementList">
+                    <div class="announcement-item">
+                        <p class="text-muted">កំពុងទាញយកទិន្នន័យ...</p>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
+        </div>
 
-        <!-- Announcements Section -->
-        <section class="card announcement-card glass">
-            <div class="stat-header">
-                <div class="icon-wrapper purple">
-                    <i class="fa-solid fa-bullhorn"></i>
+        <!-- View: Profile -->
+        <div id="view-profile" class="view">
+            <section class="card glass">
+                <div class="profile-header-large">
+                    <img src="https://api.dicebear.com/9.x/notionists/svg?seed=Felix&backgroundColor=e2e8f0" alt="Student Avatar" class="profile-avatar-large">
+                    <h2 id="profileName">--</h2>
+                    <p class="text-muted" id="profileClass">--</p>
                 </div>
-                <h3>សេចក្តីជូនដំណឹង</h3>
-            </div>
-            <div class="announcement-list" id="announcementList">
-                <div class="announcement-item">
-                    <p class="text-muted">កំពុងទាញយកទិន្នន័យ...</p>
+                <div class="profile-settings mt-3">
+                    <div class="setting-item">
+                        <div class="setting-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="setting-text">
+                            <h4>លេខទូរស័ព្ទ</h4>
+                            <p>+855 12 345 678</p>
+                        </div>
+                    </div>
+                    <div class="setting-item">
+                        <div class="setting-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="setting-text">
+                            <h4>អាសយដ្ឋាន</h4>
+                            <p>រាជធានីភ្នំពេញ</p>
+                        </div>
+                    </div>
+                    <button class="btn-outline-danger w-100 mt-3" onclick="tg.close()">បិទកម្មវិធី</button>
                 </div>
-            </div>
-        </section>
-        
+            </section>
+        </div>
+
+        <!-- Loading Overlay -->
         <div class="loading-overlay" id="loadingOverlay">
             <div class="spinner"></div>
             <p>កំពុងរៀបចំ...</p>
@@ -109,22 +158,22 @@
 
         <!-- Bottom Navigation -->
         <nav class="bottom-nav">
-            <a href="#" class="nav-item active">
+            <a href="#" class="nav-item active" data-target="view-home">
                 <i class="fa-solid fa-house"></i>
                 <span>ទំព័រដើម</span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" data-target="view-studies">
                 <i class="fa-solid fa-layer-group"></i>
                 <span>សិក្សា</span>
             </a>
             <div class="nav-item-center">
-                <button class="nav-fab"><i class="fa-solid fa-plus"></i></button>
+                <button class="nav-fab" id="fabBtn"><i class="fa-solid fa-robot"></i></button>
             </div>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" data-target="view-notices">
                 <i class="fa-solid fa-bell"></i>
                 <span>ដំណឹង</span>
             </a>
-            <a href="#" class="nav-item">
+            <a href="#" class="nav-item" data-target="view-profile">
                 <i class="fa-solid fa-user"></i>
                 <span>គណនី</span>
             </a>
